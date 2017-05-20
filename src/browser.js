@@ -353,7 +353,7 @@ class FileBrowser extends React.Component {
       actionTarget: this.state.actionTarget,
 
       // browser manipulation
-      select: this.select,
+      select: (() => { this.props.select(); this.select() }).bind(this),
       openFolder: this.openFolder,
       toggleFolder: this.toggleFolder,
       beginAction: this.beginAction,
